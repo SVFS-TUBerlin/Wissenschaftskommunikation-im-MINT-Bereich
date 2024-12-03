@@ -2,7 +2,7 @@
   "name": "tool",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://MalteSLi.github.io/Wissenschaftskommunikation-im-MINT-Bereich",
+  "homepage": "https://svfs-tuberlin.github.io/Wissenschaftskommunikation-im-MINT-Bereich",
   "dependencies": {
     "@chakra-ui/react": "^3.0.2",
     "@emotion/react": "^11.13.3",

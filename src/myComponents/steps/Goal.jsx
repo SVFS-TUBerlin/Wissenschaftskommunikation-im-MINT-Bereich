@@ -38,17 +38,17 @@ const Goal = (props) => {
             <Button variant="outline" onClick={props.nextStep}><GoArrowRight /></Button>
           </HStack>
           <Heading height={50} borderRadius="10px">
-          {props.step.question}
+            {props.step.question}
           </Heading>
           <CheckboxGroup name={props.step.key} onChange={update} >
             <Flex gap="15px" wrap="wrap" justify="center" >
-            {props.step.answers.map((answer) => 
-              <CheckboxCard
-                label={answer.title}
-                description={answer.description}
-                value={answer.id}
-              />
-            )}
+              {props.step.answers.map((answer) => 
+                <CheckboxCard
+                  label={answer.title}
+                  description={answer.description}
+                  value={answer.id}
+                />
+              )}
             </Flex>
           </CheckboxGroup>
       </VStack>

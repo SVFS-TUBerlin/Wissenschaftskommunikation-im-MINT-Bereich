@@ -14,7 +14,7 @@ const initialForm = {
   "ziel": [],
   "zielgruppe": {
     "alter": [],
-    "themenbezug": "ja",
+    "themenbezug": "301",
     "kontext": [],
   },
   "art": []

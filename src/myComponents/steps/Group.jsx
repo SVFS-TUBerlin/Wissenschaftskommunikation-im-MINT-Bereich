@@ -18,7 +18,7 @@ const Group = (props) => {
     "key": "zielgruppe",
     "content": {
       "alter": [],
-      "themenbezug": "ja",
+      "themenbezug": 301,
       "kontext": []
     }
   });
@@ -63,7 +63,7 @@ const Group = (props) => {
             <Heading height={50} borderRadius="10px">
             {props.step.questions[1].question}
             </Heading>
-            <RadioGroup defaultValue="301" name={props.step.questions[1].key} onChange={update} >
+            <RadioGroup defaultValue={301} name={props.step.questions[1].key} onChange={update} >
               <HStack gap="6">
               {props.step.questions[1].answers.map((answer) => 
                 <Radio value={answer.id}>{answer.title}</Radio>
