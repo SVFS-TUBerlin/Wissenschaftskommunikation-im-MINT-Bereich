@@ -15,11 +15,11 @@ const Results = (props) => {
 		const media = []
 		for(let i = 0; i < mediaFile.length; i++) {
 			if(
-				props.form.ziel.some(item => mediaFile[i].ziel.includes(parseInt(item))) &
-				props.form.zielgruppe.alter.some(item => mediaFile[i].alter.includes(parseInt(item))) &
-				mediaFile[i].themenbezug.includes(parseInt(props.form.zielgruppe.themenbezug)) &
-				props.form.zielgruppe.kontext.some(item => mediaFile[i].kontext.includes(parseInt(item))) &
-				props.form.art.some(item => mediaFile[i].art.includes(parseInt(item)))
+				props.form.ziel.some(item => parseInt(item) === 111 || mediaFile[i].ziel.includes(parseInt(item))) &
+				props.form.zielgruppe.alter.some(item => parseInt(item) === 208 || mediaFile[i].alter.includes(parseInt(item))) &
+				(parseInt(props.form.zielgruppe.themenbezug) === 303 || mediaFile[i].themenbezug.includes(parseInt(props.form.zielgruppe.themenbezug))) &
+				props.form.zielgruppe.kontext.some(item => parseInt(item) === 406 || mediaFile[i].kontext.includes(parseInt(item))) &
+				props.form.art.some(item => parseInt(item) === 505 || mediaFile[i].art.includes(parseInt(item)))
 			) {
 				media.push(mediaFile[i]);
 			}
@@ -29,8 +29,8 @@ const Results = (props) => {
 			<Flex gap="15px" wrap="wrap" justify="center" >
 				{ 
 					media.map((item) => 
-						<Card.Root width="320px">
-							<Card.Title >{item.name}</Card.Title>
+						<Card.Root padding="2px" width="320px">
+							<Card.Title textAlign="center">{item.name}</Card.Title>
 						</Card.Root>
 					)
 				}

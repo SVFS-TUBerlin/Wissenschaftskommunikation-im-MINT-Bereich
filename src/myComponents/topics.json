@@ -52,6 +52,11 @@
                 "id": 110,
                 "title": "Wertschätzung schaffen",
                 "description": ""
+            },
+            {
+                "id": 111,
+                "title": "Anderes Ziel",
+                "description": ""
             }
         ]
     },
@@ -68,7 +73,8 @@
                     { "id": 204, "title": "19-25", "description": "" },
                     { "id": 205, "title": "26-40", "description": "" },
                     { "id": 206, "title": "41-67", "description": "" },
-                    { "id": 207, "title": "68+", "description": "z.B. Senioren" }
+                    { "id": 207, "title": "68+", "description": "z.B. Senioren" },
+                    { "id": 208, "title": "Alle", "description": "" }
                 ]
             },
             {
@@ -76,7 +82,8 @@
                 "question": "Ist deine Zielgruppe mit dem Thema vertraut?",
                 "answers": [
                     { "id": 301, "title": "ja" },
-                    { "id": 302, "title": "nein" }
+                    { "id": 302, "title": "nein" },
+                    { "id": 303, "title": "beides" }
                 ]
             },
             {
@@ -87,7 +94,8 @@
                     { "id": 402, "title": "Industrie / geschäftlich" },
                     { "id": 403, "title": "Politik" },
                     { "id": 404, "title": "Unterhaltung" },
-                    { "id": 405, "title": "Wissenschaft" }
+                    { "id": 405, "title": "Wissenschaft" },
+                    { "id": 406, "title": "Anderer Kontext" }
                 ]
             }
         ]
@@ -115,6 +123,11 @@
             {
                 "id": 504,
                 "title": "Interaktiv",
+                "description": ""
+            },
+            {
+                "id": 505,
+                "title": "Andere Art",
                 "description": ""
             }
         ]

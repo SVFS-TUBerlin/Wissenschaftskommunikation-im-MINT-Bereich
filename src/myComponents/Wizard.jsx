@@ -2,6 +2,8 @@
 
 import StepWizard from "react-step-wizard";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Center, Box, VStack } from "@chakra-ui/react";
 
 import transitions from './transitions.less';
 import Goal from './steps/Goal.jsx';
@@ -60,16 +62,25 @@ const Wizard = () => {
   const { SW } = state;
 
   return (
-    <StepWizard 
-      transitions={state.transitions} // comment out for default transitions
-      // nav={<Nav />}
-      instance={setInstance}
-    >
-      <Goal update={updateForm} step={stepFile[0]} stepCount={0} totalSteps={stepFile.length} />
-      <Group update={updateForm} step={stepFile[1]} stepCount={1} totalSteps={stepFile.length} />
-      <Goal update={updateForm} step={stepFile[2]} stepCount={2} totalSteps={stepFile.length} />
-      <Results form={state.form} stepFile={stepFile} reset={reset} />
-    </StepWizard>
+    <Center>
+      <VStack>
+        <Box margin={10} >
+          <Link to="/">Wiko Tool - wie soll ich Wissenschaft kommunizieren?</Link>
+        </Box>
+        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10}>
+          <StepWizard 
+            transitions={state.transitions} // comment out for default transitions
+            // nav={<Nav />}
+            instance={setInstance}
+          >
+            <Goal update={updateForm} step={stepFile[0]} stepCount={0} totalSteps={stepFile.length} />
+            <Group update={updateForm} step={stepFile[1]} stepCount={1} totalSteps={stepFile.length} />
+            <Goal update={updateForm} step={stepFile[2]} stepCount={2} totalSteps={stepFile.length} />
+            <Results form={state.form} stepFile={stepFile} reset={reset} />
+          </StepWizard>
+        </Box>
+      </VStack>
+    </Center>
   )
 }
 

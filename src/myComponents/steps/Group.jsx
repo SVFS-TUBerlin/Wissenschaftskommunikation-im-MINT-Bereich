@@ -60,7 +60,7 @@ const Group = (props) => {
               )}
               </Flex>
             </CheckboxGroup>
-            <Heading height={50} borderRadius="10px">
+            <Heading marginTop={10} height={50} borderRadius="10px">
             {props.step.questions[1].question}
             </Heading>
             <RadioGroup defaultValue={301} name={props.step.questions[1].key} onChange={update} >
@@ -71,7 +71,7 @@ const Group = (props) => {
               </HStack>
             </RadioGroup>
             
-            <Heading height={50} borderRadius="10px">
+            <Heading marginTop={10} height={50} borderRadius="10px">
             {props.step.questions[2].question}
             </Heading>
             <CheckboxGroup name={props.step.questions[2].key} onChange={update} >
