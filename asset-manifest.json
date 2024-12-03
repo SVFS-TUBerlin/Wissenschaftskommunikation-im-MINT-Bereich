@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Wissenschaftskommunikation-im-MINT-Bereich/static/css/main.e6c13ad2.css",
+    "main.js": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/main.6068fe26.js",
+    "static/js/453.25bf7daa.chunk.js": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/453.25bf7daa.chunk.js",
+    "static/media/transitions.less": "/Wissenschaftskommunikation-im-MINT-Bereich/static/media/transitions.0a75a5b95731abe3f5bf.less",
+    "index.html": "/Wissenschaftskommunikation-im-MINT-Bereich/index.html",
+    "main.e6c13ad2.css.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/css/main.e6c13ad2.css.map",
+    "main.6068fe26.js.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/main.6068fe26.js.map",
+    "453.25bf7daa.chunk.js.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/453.25bf7daa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.6068fe26.js"
+  ]
+}
