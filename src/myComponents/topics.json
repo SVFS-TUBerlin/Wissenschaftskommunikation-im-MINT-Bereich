@@ -1,0 +1,122 @@
+[
+    {
+        "key": "ziel",
+        "question": "Was willst du mit deiner Wissenschaftskommunikation erreichen?",
+        "answers": [
+            {
+                "id": 101,
+                "title": "Begeistern",
+                "description": ""
+            },
+            {
+                "id": 102,
+                "title": "motivieren",
+                "description": ""
+            },
+            {
+                "id": 103,
+                "title": "Informieren",
+                "description": ""
+            },
+            {
+                "id": 104,
+                "title": "Aufklären",
+                "description": ""
+            },
+            {
+                "id": 105,
+                "title": "Zum Denken anregen",
+                "description": ""
+            },
+            {
+                "id": 106,
+                "title": "Sensibilisieren",
+                "description": ""
+            },
+            {
+                "id": 107,
+                "title": "Mobilisieren / Handeln",
+                "description": ""
+            },
+            {
+                "id": 108,
+                "title": "Vertrauen schaffen",
+                "description": ""
+            },
+            {
+                "id": 109,
+                "title": "Überzeugen",
+                "description": ""
+            },
+            {
+                "id": 110,
+                "title": "Wertschätzung schaffen",
+                "description": ""
+            }
+        ]
+    },
+    {
+        "key": "zielgruppe",
+        "questions": [
+            {
+                "key": "alter",
+                "question": "Wer ist deine Zielgruppe?",
+                "answers": [
+                    { "id": 201, "title": "0-6", "description": "" },
+                    { "id": 202, "title": "7-12", "description": "" },
+                    { "id": 203, "title": "13-18", "description": "" },
+                    { "id": 204, "title": "19-25", "description": "" },
+                    { "id": 205, "title": "26-40", "description": "" },
+                    { "id": 206, "title": "41-67", "description": "" },
+                    { "id": 207, "title": "68+", "description": "z.B. Senioren" }
+                ]
+            },
+            {
+                "key": "themenbezug",
+                "question": "Ist deine Zielgruppe mit dem Thema vertraut?",
+                "answers": [
+                    { "id": 301, "title": "ja" },
+                    { "id": 302, "title": "nein" }
+                ]
+            },
+            {
+                "key": "kontext",
+                "question": "Was ist der Kontext deiner Wissensvermittlung?",
+                "answers": [
+                    { "id": 401, "title": "Bildung" },
+                    { "id": 402, "title": "Industrie / geschäftlich" },
+                    { "id": 403, "title": "Politik" },
+                    { "id": 404, "title": "Unterhaltung" },
+                    { "id": 405, "title": "Wissenschaft" }
+                ]
+            }
+        ]
+    },
+    {
+        "key": "art",
+        "singleSelect": false,
+        "question": "Welche Art der Kommunikation präferierst du?",
+        "answers": [
+            {
+                "id": 501,
+                "title": "Auditiv",
+                "description": ""
+            },
+            {
+                "id": 502,
+                "title": "Audiovisuell",
+                "description": ""
+            },
+            {
+                "id": 503,
+                "title": "Visuell",
+                "description": ""
+            },
+            {
+                "id": 504,
+                "title": "Interaktiv",
+                "description": ""
+            }
+        ]
+    }
+]
