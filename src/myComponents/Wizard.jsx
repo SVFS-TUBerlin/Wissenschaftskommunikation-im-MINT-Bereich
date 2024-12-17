@@ -13,7 +13,7 @@ import Results from './steps/Results.jsx';
 
 import useSound from 'use-sound';
 
-import sound from '../sounds/we-wish-you-a-merry-christmas-arranged-for-strings-182924.mp3';
+import sound from '../sounds/christmas.mp3';
 var stepFile = require ('./topics.json');
 
 const initialForm = {
