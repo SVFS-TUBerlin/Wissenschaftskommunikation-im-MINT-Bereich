@@ -1,15 +1,19 @@
 // from: https://github.com/jcmcneal/react-step-wizard/blob/master/app/components/wizard.js
 
 import StepWizard from "react-step-wizard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Center, Box, VStack } from "@chakra-ui/react";
+import { Center, Box, VStack, Icon } from "@chakra-ui/react";
+import { Button } from "../components/ui/button";
 
 import transitions from './transitions.less';
 import Goal from './steps/Goal.jsx';
 import Group from './steps/Group.jsx';
 import Results from './steps/Results.jsx';
 
+import useSound from 'use-sound';
+
+import sound from '../sounds/we-wish-you-a-merry-christmas-arranged-for-strings-182924.mp3';
 var stepFile = require ('./topics.json');
 
 const initialForm = {
@@ -23,6 +27,9 @@ const initialForm = {
 };
 
 const Wizard = () => {
+  const [play, { stop }] = useSound(sound);
+  let playing = false;
+
   const [state, updateState] = useState({
     form: initialForm,
     transitions: {
@@ -34,6 +41,16 @@ const Wizard = () => {
     },
     // demo: true, // uncomment to see more
   });
+
+  const handleSound = () => {
+    if(playing) {
+      playing = false;
+      stop();
+    } else {
+      playing = true;
+      play();
+    }
+  }
 
   const updateForm = (obj) => {
     const { form } = state;
@@ -58,19 +75,18 @@ const Wizard = () => {
     ...state,
     SW,
   });
-  
-  const { SW } = state;
 
   return (
+    <>
     <Center>
       <VStack>
-        <Box margin={10} >
-          <Link to="/">Wiko Tool - wie soll ich Wissenschaft kommunizieren?</Link>
+        <Box paddingTop={4} paddingBottom={4} width={400} marginBottom={5} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
+          <Link to="/">WissKommPass</Link>
         </Box>
-        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10}>
+        <Button onClick={handleSound} >play sound</Button>
+        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} maxWidth={1000}>
           <StepWizard 
-            transitions={state.transitions} // comment out for default transitions
-            // nav={<Nav />}
+            transitions={state.transitions}
             instance={setInstance}
           >
             <Goal update={updateForm} step={stepFile[0]} stepCount={0} totalSteps={stepFile.length} />
@@ -81,6 +97,7 @@ const Wizard = () => {
         </Box>
       </VStack>
     </Center>
+    </>
   )
 }
 

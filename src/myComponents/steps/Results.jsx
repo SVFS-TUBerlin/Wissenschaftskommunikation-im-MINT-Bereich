@@ -1,10 +1,15 @@
-import { BsAndroid } from "react-icons/bs";
 import { Button } from "../../components/ui/button";
-import { Box, VStack, Heading, Stack, Center, Text, HStack, Card, Flex } from "@chakra-ui/react";
+import { useState } from 'react';
+import { Box, VStack, Heading, Stack, Center, Text, Card, Flex } from "@chakra-ui/react";
+import Modal from 'react-bootstrap/Modal';
+import "./styles.css";
 
 const Results = (props) => {
 
 	var mediaFile = require ('../media.json');
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
 	const restart = () => {
 		props.reset();
@@ -24,16 +29,15 @@ const Results = (props) => {
 				media.push(mediaFile[i]);
 			}
 		}
-
 		return (
 			<Flex gap="15px" wrap="wrap" justify="center" >
-				{ 
-					media.map((item) => 
-						<Card.Root padding="2px" width="320px">
-							<Card.Title textAlign="center">{item.name}</Card.Title>
-						</Card.Root>
-					)
-				}
+			{
+				media.map((item, index) =>  
+				<Card.Root onClick={handleShow} width="320px" padding="10px" >
+					<Card.Title textAlign="center" >{item.name}</Card.Title>
+				</Card.Root>)
+			}
+				
 			</Flex>
 		);
 	}
@@ -49,6 +53,19 @@ const Results = (props) => {
 
 	return (
 	<Stack>
+		<Modal className="modal-wrapper" show={show} onHide={handleClose}>
+			<Box className="modal" show={show} >
+			<Modal.Header className="modal-header" closeButton>
+				<Modal.Title>Modal heading</Modal.Title>
+			</Modal.Header>
+			<Modal.Body className="modal-body" >Woohoo, you are reading this text in a modal!</Modal.Body>
+			<Modal.Footer className="modal-footer">
+				<Button onClick={handleClose} borderColor="grey" >
+					Close
+				</Button>
+			</Modal.Footer>
+			</Box>
+		</Modal>
 		<Center color="white">
 		<VStack>
 			<Heading height={50} borderRadius="10px" color="black" >
@@ -72,11 +89,14 @@ const Results = (props) => {
 				</Box>
 				<MediaResults />
 			</VStack>
+			{/* <Button onClick={handleShow} >Modal öffnen</Button> */}
 			<Button onClick={restart} marginTop={10} >Zum Anfang</Button>
 		</VStack>
 		</Center>
 	</Stack>
 	)
 }
+
+
 
 export default Results;

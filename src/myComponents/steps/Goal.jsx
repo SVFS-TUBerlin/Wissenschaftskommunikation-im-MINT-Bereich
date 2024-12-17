@@ -1,5 +1,5 @@
 import { Button } from "../../components/ui/button";
-import { Box, CheckboxGroup, useCheckbox, Heading, VStack, HStack, Stack, Center, Flex, Card } from "@chakra-ui/react";
+import { Box, CheckboxGroup, Heading, VStack, HStack, Stack, Center, Flex } from "@chakra-ui/react";
 import { CheckboxCard } from "../../components/ui/checkbox-card"
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useState } from "react";
@@ -37,9 +37,10 @@ const Goal = (props) => {
             <Box marginLeft={5} marginRight={5}>{props.stepCount+1}/{props.totalSteps}</Box>
             <Button variant="outline" onClick={props.nextStep}><GoArrowRight /></Button>
           </HStack>
-          <Heading height={50} borderRadius="10px">
+          <Heading marginTop={0} marginBottom={0} >
             {props.step.question}
           </Heading>
+          <Box marginBottom={3}>(Mehrauswahl möglich)</Box>
           <CheckboxGroup name={props.step.key} onChange={update} >
             <Flex gap="15px" wrap="wrap" justify="center" >
               {props.step.answers.map((answer) => 
