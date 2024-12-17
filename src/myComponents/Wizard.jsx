@@ -3,13 +3,14 @@
 import StepWizard from "react-step-wizard";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Center, Box, VStack, Icon } from "@chakra-ui/react";
+import { Center, Box, VStack, HStack, Icon, Heading } from "@chakra-ui/react";
 import { Button } from "../components/ui/button";
 
 import transitions from './transitions.less';
 import Goal from './steps/Goal.jsx';
 import Group from './steps/Group.jsx';
 import Results from './steps/Results.jsx';
+import { FaHome } from "react-icons/fa";
 
 import useSound from 'use-sound';
 
@@ -80,10 +81,13 @@ const Wizard = () => {
     <>
     <Center>
       <VStack>
-        <Box paddingTop={4} paddingBottom={4} width={400} marginBottom={5} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
-          <Link to="/">WissKommPass</Link>
-        </Box>
-        <Button onClick={handleSound} >play sound</Button>
+        <HStack>
+          <Box paddingTop={4} paddingBottom={4} width={400} marginBottom={5} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
+            <Link to="/">WissKommPass</Link>
+          </Box>
+          <Link to="/"><Icon size={"2xl"}><FaHome /></Icon></Link>
+          </HStack>
+        {/* <Button onClick={handleSound} >play sound</Button> */}
         <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} maxWidth={1000}>
           <StepWizard 
             transitions={state.transitions}
@@ -92,7 +96,7 @@ const Wizard = () => {
             <Goal update={updateForm} step={stepFile[0]} stepCount={0} totalSteps={stepFile.length} />
             <Group update={updateForm} step={stepFile[1]} stepCount={1} totalSteps={stepFile.length} />
             <Goal update={updateForm} step={stepFile[2]} stepCount={2} totalSteps={stepFile.length} />
-            <Results form={state.form} stepFile={stepFile} reset={reset} />
+            <Results form={state.form} stepFile={stepFile} stepCount={3} reset={reset} />
           </StepWizard>
         </Box>
       </VStack>

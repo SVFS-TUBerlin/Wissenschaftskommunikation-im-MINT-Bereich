@@ -41,11 +41,8 @@ const Group = (props) => {
     <Stack width="100%">
       <Center >
         <VStack>
-            <HStack marginBottom={5}>
-                <Button variant="outline" onClick={props.previousStep}><GoArrowLeft /></Button>
-                <Box marginLeft={5} marginRight={5}>{props.stepCount+1}/{props.totalSteps}</Box>
-                <Button variant="outline" onClick={props.nextStep}><GoArrowRight /></Button>
-            </HStack>
+          <Heading marginBottom={5} size="md">Wähle die Kriterien deiner Wissenschaftskommunikation</Heading>
+          <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
             <Heading marginTop={0} marginBottom={0} >
             {props.step.questions[0].question}
             </Heading>
@@ -61,7 +58,9 @@ const Group = (props) => {
               )}
               </Flex>
             </CheckboxGroup>
-            <Heading marginTop={7} marginBottom={0} >
+          </Box>
+          <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
+            <Heading>
             {props.step.questions[1].question}
             </Heading>
             <Box marginBottom={3}>(Nur eins auswählen)</Box>
@@ -72,8 +71,9 @@ const Group = (props) => {
               )}
               </HStack>
             </RadioGroup>
-            
-            <Heading marginTop={7} borderRadius="10px">
+          </Box>
+          <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
+            <Heading>
             {props.step.questions[2].question}
             </Heading>
             <Box marginBottom={3}>(Mehrauswahl möglich)</Box>
@@ -88,6 +88,12 @@ const Group = (props) => {
               )}
               </Flex>
             </CheckboxGroup>
+          </Box>
+          <HStack marginTop={5}>
+            <Button variant="outline" onClick={props.stepCount!=0 ? props.previousStep : null}><GoArrowLeft color={props.stepCount!=0 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
+            <Box marginLeft={5} marginRight={5}>{props.stepCount+1}/{props.totalSteps}</Box>
+            <Button variant="outline" onClick={props.stepCount!=3 ? props.nextStep : null}><GoArrowRight color={props.stepCount!=3 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
+          </HStack>
         </VStack>
       </Center>
     </Stack>

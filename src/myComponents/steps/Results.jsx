@@ -1,6 +1,7 @@
 import { Button } from "../../components/ui/button";
 import { useState } from 'react';
-import { Box, VStack, Heading, Stack, Center, Text, Card, Flex } from "@chakra-ui/react";
+import { Box, HStack, VStack, Heading, Stack, Center, Text, Card, Flex, Table } from "@chakra-ui/react";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import Modal from 'react-bootstrap/Modal';
 import "./styles.css";
 
@@ -46,7 +47,8 @@ const Results = (props) => {
 		const results = []
 		for(let i = 0; i < id.length; i++) {
 			let answer = (step.answers.find(item => item.id === parseInt(id[i])));
-			results.push(answer?.title);
+			const entry = i>0 ? ", "+answer?.title : answer?.title
+			results.push(entry);
 		}
 		return results;
 	}
@@ -66,31 +68,46 @@ const Results = (props) => {
 			</Modal.Footer>
 			</Box>
 		</Modal>
-		<Center color="white">
+		<Center>
 		<VStack>
-			<Heading height={50} borderRadius="10px" color="black" >
+			<VStack>
+				<Heading size="md">Du hast folgende Auswahl getroffen:</Heading>
+				<Table.Root color="grey" width={"60%"}>
+					<Table.Body>
+						<Table.Row>
+							<Table.Cell>Ziel der Kommunikation:</Table.Cell>
+							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[0], props.form.ziel)}</Text></Table.Cell>
+						</Table.Row>
+						<Table.Row>
+							<Table.Cell>Alter deiner Zielgruppe:</Table.Cell>
+							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[0], props.form.zielgruppe.alter)}</Text> </Table.Cell>
+						</Table.Row>
+						<Table.Row>
+							<Table.Cell>Themenbezug der Zielgruppe:</Table.Cell>
+							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[1], props.form.zielgruppe.themenbezug) === 301 ? "ja" : "nein"}</Text></Table.Cell>
+						</Table.Row>
+						<Table.Row>
+							<Table.Cell>Kontext:</Table.Cell>
+							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[2], props.form.zielgruppe.kontext)}</Text></Table.Cell>
+						</Table.Row>
+						<Table.Row>
+							<Table.Cell>Art des Mediums:</Table.Cell>
+							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[2], props.form.art)}</Text></Table.Cell>
+						</Table.Row>
+					</Table.Body>
+				</Table.Root>
+			<Heading height={50} marginTop={5} borderRadius="10px" color="black" >
 				Hier sind ein paar Vorschläge, wie du deine Inhalte kommunizieren kannst.
 			</Heading>
-			<VStack>
-				<Box bg="grey" padding="10px" borderRadius="10px">
-					<Text fontWeight="semibold">Du hast folgende Auswahl getroffen</Text>
-					Deine Zielgruppe ist 
-					<Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[0], props.form.zielgruppe.alter)}</Text> 
-					Jahre alt und hat zu dem Thema
-					<Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[1], props.form.zielgruppe.themenbezug) === 301 ? "einen" : "keinen"}</Text>
-					Bezug.
-					Der Kontext deine Wissenschaftskommunikation ist
-					<Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[2], props.form.zielgruppe.kontext)}</Text>
-					und du willst in diesem Zusammenhang deine Zielgruppe für dein Thema
-					für deine Inhalte <Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[0], props.form.ziel)}</Text>
-					Dafür willst du vor allem 
-					<Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[2], props.form.art)}</Text>
-					gestaltete Medien nutzen.
-				</Box>
-				<MediaResults />
+			<MediaResults />
 			</VStack>
 			{/* <Button onClick={handleShow} >Modal öffnen</Button> */}
-			<Button onClick={restart} marginTop={10} >Zum Anfang</Button>
+			<HStack marginTop={5}>
+				<Button variant="outline" onClick={props.stepCount!=0 ? props.previousStep : null}><GoArrowLeft color={props.stepCount!=0 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
+				<Box marginLeft={5} marginRight={5}>{props.stepCount+1}/{props.totalSteps}</Box>
+				<Button variant="outline" onClick={props.stepCount!=3 ? props.nextStep : null}><GoArrowRight color={props.stepCount!=3 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
+			</HStack>
+			<Button variant="outline" onClick={restart} >Zum Anfang</Button>
 		</VStack>
 		</Center>
 	</Stack>
