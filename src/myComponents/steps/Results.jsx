@@ -53,6 +53,16 @@ const Results = (props) => {
 		return results;
 	}
 
+	const onDownloadPDF = (pathToFile) => {
+        const pdfUrl = pathToFile;
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "beipackzettel.pdf"; // specify the filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
 	return (
 	<Stack>
 		<Modal className="modal-wrapper" show={show} onHide={handleClose}>
@@ -96,10 +106,13 @@ const Results = (props) => {
 						</Table.Row>
 					</Table.Body>
 				</Table.Root>
-			<Heading height={50} marginTop={5} borderRadius="10px" color="black" >
-				Hier sind ein paar Vorschläge, wie du deine Inhalte kommunizieren kannst.
+			<Heading marginTop={5} marginBottom={0} borderRadius="10px" color="black" >
+				Hier sind Vorschläge, wie du deine Inhalte kommunizieren kannst.
 			</Heading>
+            <Box marginBottom={3}>(Klicke auf ein Medium für mehr Informationen)</Box>
 			<MediaResults />
+            <Box marginBottom={3}>Um dir noch mehr bei deiner Wissenschaftskommunikation zu helfen, haben wir hier einen praktischen Hilfezettel für die wichtigsten Aspekte entworfen:</Box>
+			<Button onClick={() => onDownloadPDF("WissKommPass_Beipackzettel.pdf")}>Download Zusatzmaterial</Button>
 			</VStack>
 			{/* <Button onClick={handleShow} >Modal öffnen</Button> */}
 			<HStack marginTop={5}>
