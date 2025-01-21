@@ -27,13 +27,13 @@ const Home = () => {
         Du brauchst Inspiration for deine Kommunikation?
       </Box>
 
-      <Box margin={5} maxWidth="80%" padding="1rem 2rem" background="turquoise" color="white" >
+      <Box margin={5} maxWidth="60%" padding="1rem 2rem" background="turquoise" color="white" >
         Du stehst kurz vor einem Vortrag und möchtest ihn spannender gestalten? Der „Medienkompass“ bietet dir Starthilfe, um passende Methoden für deine Zielgruppe und Intention zu finden. Lass dich von kreativen Alternativen inspirieren, um Wissen effektiv zu vermitteln.
       </Box>
       
       <Link to="/tool"><Button width={150} height={50} fontSize={"lg"}>Start</Button></Link>
 
-      <AccordionRoot marginTop={3} maxWidth="80%" collapsible defaultValue={["b"]}>
+      <AccordionRoot marginTop={3} maxWidth="60%" collapsible defaultValue={["b"]}>
           <AccordionItem key={1} value={1} >
             <AccordionItemTrigger>Wozu dient der Medienkompass?</AccordionItemTrigger>
             <AccordionItemContent>
