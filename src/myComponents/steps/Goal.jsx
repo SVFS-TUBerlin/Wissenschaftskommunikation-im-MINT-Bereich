@@ -1,8 +1,8 @@
-import { Button } from "../../components/ui/button";
-import { Box, CheckboxGroup, Heading, VStack, HStack, Stack, Center, Flex } from "@chakra-ui/react";
+import { Box, CheckboxGroup, Heading, VStack, Stack, Center, Flex, HStack } from "@chakra-ui/react";
+import { Tooltip } from "../../components/ui/tooltip"
 import { CheckboxCard } from "../../components/ui/checkbox-card"
-import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useState } from "react";
+import { IoInformationCircle } from "react-icons/io5";
 
 
 function removeItemOnce(arr, value) {
@@ -32,10 +32,14 @@ const Goal = (props) => {
   <Stack width="100%">
     <Center >
       <VStack>
-        <Heading marginBottom={5} size="md">Wähle die Kriterien deiner Wissenschaftskommunikation</Heading>
           <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
             <Heading marginTop={0} marginBottom={0} >
-              {props.step.question}
+              <HStack>
+                {props.step.question}
+                <Tooltip showArrow size="l" positioning={{ placement: "top" }} content={props.step.tooltip}>
+                  <IoInformationCircle />
+                </Tooltip>
+              </HStack>
             </Heading>
             <Box marginBottom={3}>(Mehrauswahl möglich)</Box>
             <CheckboxGroup name={props.step.key} onChange={update} >
@@ -50,11 +54,6 @@ const Goal = (props) => {
               </Flex>
             </CheckboxGroup>
           </Box>
-          <HStack marginTop={5}>
-            <Button variant="outline" onClick={props.stepCount!=0 ? props.previousStep : null}><GoArrowLeft color={props.stepCount!=0 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
-            <Box marginLeft={5} marginRight={5}>{props.stepCount+1}/{props.totalSteps}</Box>
-            <Button variant="outline" onClick={props.stepCount!=3 ? props.nextStep : null}><GoArrowRight color={props.stepCount!=3 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
-          </HStack>
       </VStack>
     </Center>
   </Stack>

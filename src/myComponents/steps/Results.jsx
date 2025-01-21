@@ -1,19 +1,25 @@
 import { Button } from "../../components/ui/button";
 import { useState } from 'react';
-import { Box, HStack, VStack, Heading, Stack, Center, Text, Card, Flex, Table } from "@chakra-ui/react";
-import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { Box, VStack, Heading, Stack, Center, Text, Card, Flex, Table } from "@chakra-ui/react";
 import Modal from 'react-bootstrap/Modal';
 import "./styles.css";
+import MediaInformation from "../MediaInformation";
 
 const Results = (props) => {
 
 	var mediaFile = require ('../media.json');
 	const [show, setShow] = useState(false);
+	const [selectedMedia, setSelectedMedia] = useState("");
 	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	const handleShow = (media) => {
+		setSelectedMedia(media);
+		console.log(selectedMedia);
+		setShow(true);
+	}
 
 	const restart = () => {
 		props.reset();
+		window.scrollTo(0,0);
 		props.firstStep();
 	};
 
@@ -34,9 +40,11 @@ const Results = (props) => {
 			<Flex gap="15px" wrap="wrap" justify="center" >
 			{
 				media.map((item, index) =>  
-				<Card.Root onClick={handleShow} width="320px" padding="10px" >
-					<Card.Title textAlign="center" >{item.name}</Card.Title>
-				</Card.Root>)
+				<Button variant="solid" padding="1px" height="fit-content" borderRadius="8px" >
+					<Card.Root onClick={() => handleShow(item.name)} width="320px" padding="10px" >
+						<Card.Title textAlign="center" >{item.name}</Card.Title>
+					</Card.Root>
+				</Button>)
 			}
 				
 			</Flex>
@@ -65,12 +73,12 @@ const Results = (props) => {
 
 	return (
 	<Stack>
-		<Modal className="modal-wrapper" show={show} onHide={handleClose}>
+		<Modal className="modal-wrapper" show={show} onHide={handleClose} >
 			<Box className="modal" show={show} >
 			<Modal.Header className="modal-header" closeButton>
-				<Modal.Title>Modal heading</Modal.Title>
+				<Modal.Title>Tipps & hilreiche Links</Modal.Title>
 			</Modal.Header>
-			<Modal.Body className="modal-body" >Woohoo, you are reading this text in a modal!</Modal.Body>
+			<Modal.Body className="modal-body" ><MediaInformation selectedMedia={selectedMedia} /></Modal.Body>
 			<Modal.Footer className="modal-footer">
 				<Button onClick={handleClose} borderColor="grey" >
 					Close
@@ -85,24 +93,24 @@ const Results = (props) => {
 				<Table.Root color="grey" width={"60%"}>
 					<Table.Body>
 						<Table.Row>
-							<Table.Cell>Ziel der Kommunikation:</Table.Cell>
-							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[0], props.form.ziel)}</Text></Table.Cell>
+							<Table.Cell padding="6px" >Ziel der Kommunikation:</Table.Cell>
+							<Table.Cell padding="6px" ><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[0], props.form.ziel)}</Text></Table.Cell>
 						</Table.Row>
 						<Table.Row>
-							<Table.Cell>Alter deiner Zielgruppe:</Table.Cell>
-							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[0], props.form.zielgruppe.alter)}</Text> </Table.Cell>
+							<Table.Cell padding="6px" >Alter deiner Zielgruppe:</Table.Cell>
+							<Table.Cell padding="6px" ><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[0], props.form.zielgruppe.alter)}</Text> </Table.Cell>
 						</Table.Row>
 						<Table.Row>
-							<Table.Cell>Themenbezug der Zielgruppe:</Table.Cell>
-							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[1], props.form.zielgruppe.themenbezug) === 301 ? "ja" : "nein"}</Text></Table.Cell>
+							<Table.Cell padding="6px" >Themenbezug der Zielgruppe:</Table.Cell>
+							<Table.Cell padding="6px" ><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[1], props.form.zielgruppe.themenbezug) === 301 ? "ja" : "nein"}</Text></Table.Cell>
 						</Table.Row>
 						<Table.Row>
-							<Table.Cell>Kontext:</Table.Cell>
-							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[2], props.form.zielgruppe.kontext)}</Text></Table.Cell>
+							<Table.Cell padding="6px" >Kontext:</Table.Cell>
+							<Table.Cell padding="6px" ><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[1].questions[2], props.form.zielgruppe.kontext)}</Text></Table.Cell>
 						</Table.Row>
 						<Table.Row>
-							<Table.Cell>Art des Mediums:</Table.Cell>
-							<Table.Cell><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[2], props.form.art)}</Text></Table.Cell>
+							<Table.Cell padding="6px" >Art des Mediums:</Table.Cell>
+							<Table.Cell padding="6px" ><Text fontWeight="semibold">{resolveIDtoTitle(props.stepFile[2], props.form.art)}</Text></Table.Cell>
 						</Table.Row>
 					</Table.Body>
 				</Table.Root>
@@ -114,13 +122,7 @@ const Results = (props) => {
             <Box marginBottom={3}>Um dir noch mehr bei deiner Wissenschaftskommunikation zu helfen, haben wir hier einen praktischen Hilfezettel für die wichtigsten Aspekte entworfen:</Box>
 			<Button onClick={() => onDownloadPDF("WissKommPass_Beipackzettel.pdf")}>Download Zusatzmaterial</Button>
 			</VStack>
-			{/* <Button onClick={handleShow} >Modal öffnen</Button> */}
-			<HStack marginTop={5}>
-				<Button variant="outline" onClick={props.stepCount!=0 ? props.previousStep : null}><GoArrowLeft color={props.stepCount!=0 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
-				<Box marginLeft={5} marginRight={5}>{props.stepCount+1}/{props.totalSteps}</Box>
-				<Button variant="outline" onClick={props.stepCount!=3 ? props.nextStep : null}><GoArrowRight color={props.stepCount!=3 ? "rgb(0,0,0)" : "rgb(150,150,150)"} /></Button>
-			</HStack>
-			<Button variant="outline" onClick={restart} >Zum Anfang</Button>
+			<Button marginTop={5} variant="outline" onClick={restart} >Zum Anfang</Button>
 		</VStack>
 		</Center>
 	</Stack>

@@ -2,6 +2,7 @@
     {
         "key": "ziel",
         "question": "Was willst du mit deiner Wissenschaftskommunikation erreichen?",
+        "tooltip": "Überlege dir, was der für dich optimale Effekt deiner Kommunikation auf deine Zielgruppe wäre",
         "answers": [
             {
                 "id": 101,
@@ -66,6 +67,7 @@
             {
                 "key": "alter",
                 "question": "Wer ist deine Zielgruppe?",
+                "tooltip": "Wie alt wird deine Zielgruppe sein?",
                 "answers": [
                     { "id": 201, "title": "0-6", "description": "" },
                     { "id": 202, "title": "7-12", "description": "" },
@@ -73,13 +75,14 @@
                     { "id": 204, "title": "19-25", "description": "" },
                     { "id": 205, "title": "26-40", "description": "" },
                     { "id": 206, "title": "41-67", "description": "" },
-                    { "id": 207, "title": "68+", "description": "z.B. Senioren" },
+                    { "id": 207, "title": "68+", "description": "" },
                     { "id": 208, "title": "Alle", "description": "" }
                 ]
             },
             {
                 "key": "themenbezug",
                 "question": "Ist deine Zielgruppe mit dem Thema vertraut?",
+                "tooltip": "Hört deine Zielgruppe zum ersten Mal von dem Thema?",
                 "answers": [
                     { "id": 301, "title": "ja" },
                     { "id": 302, "title": "nein" },
@@ -89,6 +92,7 @@
             {
                 "key": "kontext",
                 "question": "Was ist der Kontext deiner Wissensvermittlung?",
+                "tooltip": "In welchem Kontext findet deiner Kommunikation statt? In der Schule würdest du zum Beispiel 'Bildung' auswählen.",
                 "answers": [
                     { "id": 401, "title": "Bildung" },
                     { "id": 402, "title": "Industrie / geschäftlich" },
@@ -104,6 +108,7 @@
         "key": "art",
         "singleSelect": false,
         "question": "Welche Art der Kommunikation präferierst du?",
+        "tooltip": "Willst du eher reden oder deine Zielgruppe selber arbeiten lassen?",
         "answers": [
             {
                 "id": 501,

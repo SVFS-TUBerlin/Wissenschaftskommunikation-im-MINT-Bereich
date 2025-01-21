@@ -4,17 +4,15 @@ import StepWizard from "react-step-wizard";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Center, Box, VStack, HStack, Icon, Heading } from "@chakra-ui/react";
-import { Button } from "../components/ui/button";
 
 import transitions from './transitions.less';
-import Goal from './steps/Goal.jsx';
-import Group from './steps/Group.jsx';
 import Results from './steps/Results.jsx';
 import { FaHome } from "react-icons/fa";
 
 import useSound from 'use-sound';
 
 import sound from '../sounds/christmas.mp3';
+import Questionaire from "./steps/Questionaire.jsx";
 var stepFile = require ('./topics.json');
 
 const initialForm = {
@@ -83,21 +81,23 @@ const Wizard = () => {
       <VStack>
         <HStack>
           <Box paddingTop={4} paddingBottom={4} width={400} marginBottom={5} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
-            <Link to="/">WissKommPass</Link>
+            <Link to="/">Medienkompass</Link>
           </Box>
           <Link to="/"><Icon size={"2xl"}><FaHome /></Icon></Link>
           </HStack>
         {/* <Button onClick={handleSound} >play sound</Button> */}
-        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} maxWidth={1000}>
+        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} width="80%">
           <StepWizard 
             transitions={state.transitions}
             instance={setInstance}
           >
-            <Goal update={updateForm} step={stepFile[0]} stepCount={0} totalSteps={stepFile.length} />
-            <Group update={updateForm} step={stepFile[1]} stepCount={1} totalSteps={stepFile.length} />
-            <Goal update={updateForm} step={stepFile[2]} stepCount={2} totalSteps={stepFile.length} />
+            <Questionaire update={updateForm} stepFile={stepFile} />
             <Results form={state.form} stepFile={stepFile} stepCount={3} reset={reset} />
           </StepWizard>
+        </Box>
+        
+        <Box marginLeft={20} marginRight={20} marginTop={3} marginBottom={3} maxWidth={500} fontSize={"2xs"}>
+          WissKommPass is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a>
         </Box>
       </VStack>
     </Center>
