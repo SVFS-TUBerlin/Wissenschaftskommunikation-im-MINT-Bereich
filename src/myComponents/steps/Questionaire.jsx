@@ -15,10 +15,10 @@ const Questionaire = (props) => {
     <>
       <Center>
         <VStack>
-          <Heading marginBottom={5} size="md">Wähle die Kriterien deiner Wissenschaftskommunikation</Heading>
-          <Goal update={props.update} step={props.stepFile[0]} totalSteps={props.stepFile.length} />
-          <Group update={props.update} step={props.stepFile[1]} totalSteps={props.stepFile.length} />
-          <Goal update={props.update} step={props.stepFile[2]} totalSteps={props.stepFile.length} />
+          <Heading marginBottom={5} maxWidth="65%" padding="1rem 2rem" background="turquoise" color="white" size="md">Wähle die Kriterien deiner Wissenschaftskommunikation</Heading>
+          <Goal update={props.update} step={props.stepFile[0]} />
+          <Goal update={props.update} step={props.stepFile[2]} />
+          <Group update={props.update} step={props.stepFile[1]} />
           <HStack marginTop={5}>
             <Button onClick={toResults}>Show the results</Button>
           </HStack>

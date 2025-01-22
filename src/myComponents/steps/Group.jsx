@@ -19,7 +19,7 @@ const Group = (props) => {
     "content": {
       "alter": [],
       "themenbezug": 301,
-      "kontext": []
+      // "kontext": []
     }
   });
   
@@ -40,7 +40,7 @@ const Group = (props) => {
     return (
     <Stack width="100%">
       <Center >
-        <VStack>
+        <VStack width="100%">
           <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
             <Heading marginTop={0} marginBottom={0} >
               <HStack>
@@ -73,7 +73,7 @@ const Group = (props) => {
               </HStack>
             </Heading>
             <Box marginBottom={3}>(Nur eins auswählen)</Box>
-            <RadioGroup defaultValue={301} name={props.step.questions[1].key} onChange={update} >
+            <RadioGroup name={props.step.questions[1].key} onChange={update} >
               <HStack gap="6">
               {props.step.questions[1].answers.map((answer) => 
                 <Radio value={answer.id}>{answer.title}</Radio>
@@ -81,7 +81,7 @@ const Group = (props) => {
               </HStack>
             </RadioGroup>
           </Box>
-          <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
+          {/* <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
             <Heading>
               <HStack>
                 {props.step.questions[2].question}
@@ -102,7 +102,7 @@ const Group = (props) => {
               )}
               </Flex>
             </CheckboxGroup>
-          </Box>
+          </Box> */}
         </VStack>
       </Center>
     </Stack>

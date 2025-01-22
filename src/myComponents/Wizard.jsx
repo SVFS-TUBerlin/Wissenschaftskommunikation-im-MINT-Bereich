@@ -20,7 +20,7 @@ const initialForm = {
   "zielgruppe": {
     "alter": [],
     "themenbezug": "301",
-    "kontext": [],
+    // "kontext": [],
   },
   "art": []
 };
@@ -54,7 +54,6 @@ const Wizard = () => {
   const updateForm = (obj) => {
     const { form } = state;
     form[obj.key] = obj.content;
-    console.log("Form updated\n",form);
     updateState({
         ...state,
         form,
@@ -86,18 +85,18 @@ const Wizard = () => {
           <Link to="/"><Icon size={"2xl"}><FaHome /></Icon></Link>
           </HStack>
         {/* <Button onClick={handleSound} >play sound</Button> */}
-        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} width="80%">
+        <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} width="60%">
           <StepWizard 
             transitions={state.transitions}
             instance={setInstance}
           >
-            <Questionaire update={updateForm} stepFile={stepFile} />
-            <Results form={state.form} stepFile={stepFile} stepCount={3} reset={reset} />
+            <Questionaire width="100%" update={updateForm} stepFile={stepFile} />
+            <Results form={state.form} stepFile={stepFile} reset={reset} />
           </StepWizard>
         </Box>
         
         <Box marginLeft={20} marginRight={20} marginTop={3} marginBottom={3} maxWidth={500} fontSize={"2xs"}>
-          WissKommPass is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a>
+          WissKommPass is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a>
         </Box>
       </VStack>
     </Center>

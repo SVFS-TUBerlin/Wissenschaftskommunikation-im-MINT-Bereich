@@ -30,8 +30,8 @@ const Goal = (props) => {
 
   return (
   <Stack width="100%">
-    <Center >
-      <VStack>
+    <Center>
+      <VStack width="100%">
           <Box padding={5} borderWidth={1} width="100%" borderColor={"black"} borderRadius={5}>
             <Heading marginTop={0} marginBottom={0} >
               <HStack>
