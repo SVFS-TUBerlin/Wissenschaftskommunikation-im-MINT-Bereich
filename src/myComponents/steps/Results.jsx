@@ -8,6 +8,10 @@ import MediaInformation from "../MediaInformation";
 
 import { FiExternalLink } from "react-icons/fi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import { FaEye } from "react-icons/fa";
+import { SiAudiomack } from "react-icons/si";
+import { GiSoapExperiment } from "react-icons/gi";
+import { RiPresentationFill } from "react-icons/ri";
 
 
 const Results = (props) => {
@@ -18,15 +22,6 @@ const Results = (props) => {
 	const [mediaCount, setmediaCount] = useState(0);
 	const [selectedMedia, setSelectedMedia] = useState("");
 	const handleClose = () => setShow(false);
-	const handleShow = (media) => {
-		setSelectedMedia(media);
-		console.log(selectedMedia);
-		setShow(true);
-	}
-
-	const openPDFinNewWindow = () => {
-
-	}
 
 	const restart = () => {
 		props.reset();
@@ -46,6 +41,13 @@ const Results = (props) => {
 
 	const handleShowMore = () => {
 		setShowMore(!showMore);
+	}
+
+	const mediaTypeToIcon = {
+		501: <SiAudiomack />,
+		502: <RiPresentationFill />,
+		503: <FaEye />,
+		504: <GiSoapExperiment />
 	}
 
 	const MediaResults = () => {
@@ -80,7 +82,14 @@ const Results = (props) => {
 			{
 				media.slice(0, showMore ? media.length : 3).map((item, index) =>  
 					<Card.Root width="320px" padding="5px" background="lightgrey" >
-						<Card.Title textAlign="center" >{item.media.name}</Card.Title>
+						<Card.Title textAlign="center" >
+							<Center>
+								<HStack>
+									{mediaTypeToIcon[item.media.art]}
+										{item.media.name}
+								</HStack>
+							</Center>
+						</Card.Title>
 						<Card.Body>
 							<Image rounded="md" height="150px" src={"/Wissenschaftskommunikation-im-MINT-Bereich/img/"+item.media.name+".webp"} alt={"Bild von "+item.media.name}></Image>
 						</Card.Body>
@@ -146,10 +155,10 @@ const Results = (props) => {
 					{ showMore ? <IoChevronUp /> : <IoChevronDown /> }
 				</HStack>
 			</Button>}
-			<Box maxWidth="60%" padding="1rem 2rem" background="turquoise" color="white" margin={3} marginBottom={0}>
+			<Box maxWidth="100%" padding="1rem 2rem" background="#92a8D1" color="white" margin={3} marginBottom={0}>
 				<VStack>
 					Um dir noch mehr bei deiner Wissenschaftskommunikation zu helfen, haben wir hier einen praktischen Hilfezettel für die wichtigsten Aspekte entworfen:
-					<Button variant="outline" onClick={() => onDownloadPDF("Medienkompass_Beipackzettel.pdf")}>Download Medienkompass_Beipackzettel.pdf</Button>
+					<Button variant="outline" color="white" onClick={() => onDownloadPDF("Medienkompass_Beipackzettel.pdf")}>Download Medienkompass_Beipackzettel.pdf</Button>
 				</VStack>
 			</Box>
 			<Button marginTop={5} onClick={restart} >Zurück zum Fragebogen</Button>
