@@ -96,7 +96,7 @@ const Wizard = () => {
         </Box>
         
         <Box marginLeft={20} marginRight={20} marginTop={3} marginBottom={3} maxWidth={500} fontSize={"2xs"}>
-          WissKommPass is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a>
+          Medienkompass is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a>
         </Box>
       </VStack>
     </Center>

@@ -82,10 +82,10 @@ const Results = (props) => {
 					<Card.Root width="320px" padding="5px" background="lightgrey" >
 						<Card.Title textAlign="center" >{item.media.name}</Card.Title>
 						<Card.Body>
-							<Image rounded="md" height="150px" src={"/Wissenschaftskommunikation-im-MINT-Bereich/"+item.media.name+".webp"} alt={"Bild von "+item.media.name}></Image>
+							<Image rounded="md" height="150px" src={"/Wissenschaftskommunikation-im-MINT-Bereich/img/"+item.media.name+".webp"} alt={"Bild von "+item.media.name}></Image>
 						</Card.Body>
 						<Card.Footer>
-							<a href="/Wissenschaftskommunikation-im-MINT-Bereich/Medienkompass_Beipackzettel.pdf" target="_blank">
+							<a href={"/Wissenschaftskommunikation-im-MINT-Bereich/media/"+item.media.name+".pdf"} target="_blank">
 								<HStack>
 									Weitere Informationen (PDF)
 									<FiExternalLink />
