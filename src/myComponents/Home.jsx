@@ -31,12 +31,14 @@ const Home = () => {
             </Box>
           </Box>
           <Box width="50%">
-            <Heading>Einführungsvideo</Heading>
-            <video src={"video"} width="95%" controls />
+            <VStack>
+              <Heading>Einführungsvideo</Heading>
+              <video src={"/Wissenschaftskommunikation-im-MINT-Bereich/intro.mp4"} width="90%" controls />
+            </VStack>
           </Box>
         </HStack>
 
-        <Box margin={5} padding="1rem 2rem" background="#92a8D1" color="white" >
+        <Box margin={6} padding="1rem 2rem" background="#92a8D1" color="white" >
           Du stehst kurz vor einem Vortrag und möchtest ihn spannender gestalten? Der „Medienkompass“ bietet dir Starthilfe, um passende Methoden für deine Zielgruppe und Intention zu finden. Lass dich von kreativen Alternativen inspirieren, um Wissen effektiv zu vermitteln.
         </Box>
         
