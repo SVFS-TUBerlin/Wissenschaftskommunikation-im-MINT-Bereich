@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Wissenschaftskommunikation-im-MINT-Bereich/static/css/main.0583de87.css",
-    "main.js": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/main.665d0b5a.js",
+    "main.js": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/main.296be76d.js",
     "static/js/885.42311bdb.chunk.js": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/885.42311bdb.chunk.js",
     "static/media/christmas.mp3": "/Wissenschaftskommunikation-im-MINT-Bereich/static/media/christmas.6f7297577830122d6944.mp3",
     "static/media/transitions.less": "/Wissenschaftskommunikation-im-MINT-Bereich/static/media/transitions.0a75a5b95731abe3f5bf.less",
     "index.html": "/Wissenschaftskommunikation-im-MINT-Bereich/index.html",
     "main.0583de87.css.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/css/main.0583de87.css.map",
-    "main.665d0b5a.js.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/main.665d0b5a.js.map",
+    "main.296be76d.js.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/main.296be76d.js.map",
     "885.42311bdb.chunk.js.map": "/Wissenschaftskommunikation-im-MINT-Bereich/static/js/885.42311bdb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0583de87.css",
-    "static/js/main.665d0b5a.js"
+    "static/js/main.296be76d.js"
   ]
 }
