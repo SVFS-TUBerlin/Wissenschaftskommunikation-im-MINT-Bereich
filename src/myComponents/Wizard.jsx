@@ -3,15 +3,12 @@
 import StepWizard from "react-step-wizard";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Center, Box, VStack, HStack, Icon, Heading } from "@chakra-ui/react";
+import { Center, Box, VStack, HStack, Icon } from "@chakra-ui/react";
 
 import transitions from './transitions.less';
 import Results from './steps/Results.jsx';
 import { FaHome } from "react-icons/fa";
 
-import useSound from 'use-sound';
-
-import sound from '../sounds/christmas.mp3';
 import Questionaire from "./steps/Questionaire.jsx";
 var stepFile = require ('./topics.json');
 
@@ -26,8 +23,6 @@ const initialForm = {
 };
 
 const Wizard = () => {
-  const [play, { stop }] = useSound(sound);
-  let playing = false;
 
   const [state, updateState] = useState({
     form: initialForm,
@@ -38,18 +33,7 @@ const Wizard = () => {
         exitLeft: `${transitions.animated} ${transitions.exitLeft}`,
         intro: `${transitions.animated} ${transitions.intro}`,
     },
-    // demo: true, // uncomment to see more
   });
-
-  const handleSound = () => {
-    if(playing) {
-      playing = false;
-      stop();
-    } else {
-      playing = true;
-      play();
-    }
-  }
 
   const updateForm = (obj) => {
     const { form } = state;
@@ -84,7 +68,6 @@ const Wizard = () => {
           </Box>
           <Link to="/"><Icon size={"2xl"}><FaHome /></Icon></Link>
           </HStack>
-        {/* <Button onClick={handleSound} >play sound</Button> */}
         <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} width="60%">
           <StepWizard 
             transitions={state.transitions}

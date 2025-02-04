@@ -2,10 +2,6 @@ import { Button } from "../../components/ui/button";
 import { useState } from 'react';
 import { Box, HStack, VStack, Heading, Stack, Center, Card, Flex, Image } from "@chakra-ui/react";
 
-import Modal from 'react-bootstrap/Modal';
-import "./styles.css";
-import MediaInformation from "../MediaInformation";
-
 import { FiExternalLink } from "react-icons/fi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
@@ -17,11 +13,8 @@ import { RiPresentationFill } from "react-icons/ri";
 const Results = (props) => {
 
 	var mediaFile = require ('../media.json');
-	const [show, setShow] = useState(false);
 	const [showMore, setShowMore] = useState(false);
 	const [mediaCount, setmediaCount] = useState(0);
-	const [selectedMedia, setSelectedMedia] = useState("");
-	const handleClose = () => setShow(false);
 
 	const restart = () => {
 		props.reset();
@@ -94,7 +87,7 @@ const Results = (props) => {
 							<Image rounded="md" height="150px" src={"/Wissenschaftskommunikation-im-MINT-Bereich/img/"+item.media.name+".webp"} alt={"Bild von "+item.media.name}></Image>
 						</Card.Body>
 						<Card.Footer>
-							<a href={"/Wissenschaftskommunikation-im-MINT-Bereich/media/"+item.media.name+".pdf"} target="_blank">
+							<a href={"/Wissenschaftskommunikation-im-MINT-Bereich/media/"+item.media.name+".pdf"} target="_blank" rel="noreferrer">
 								<HStack>
 									Weitere Informationen (PDF)
 									<FiExternalLink />
@@ -106,16 +99,6 @@ const Results = (props) => {
 				
 			</Flex>
 		);
-	}
-
-	const resolveIDtoTitle = (step, id) => {
-		const results = []
-		for(let i = 0; i < id.length; i++) {
-			let answer = (step.answers.find(item => item.id === parseInt(id[i])));
-			const entry = i>0 ? ", "+answer?.title : answer?.title
-			results.push(entry);
-		}
-		return results;
 	}
 
 	const onDownloadPDF = (pathToFile) => {
@@ -130,22 +113,9 @@ const Results = (props) => {
 
 	return (
 	<Stack>
-		<Modal className="modal-wrapper" show={show} onHide={handleClose} >
-			<Box className="modal" show={show} >
-			<Modal.Header className="modal-header" closeButton>
-				<Modal.Title>Tipps & hilreiche Links</Modal.Title>
-			</Modal.Header>
-			<Modal.Body className="modal-body" ><MediaInformation selectedMedia={selectedMedia} /></Modal.Body>
-			<Modal.Footer className="modal-footer">
-				<Button onClick={handleClose} borderColor="grey" >
-					Close
-				</Button>
-			</Modal.Footer>
-			</Box>
-		</Modal>
 		<Center>
 		<VStack>
-			<Heading marginBottom={5} borderRadius="10px" color="black" >
+			<Heading marginBottom={5} padding="1rem 2rem" background="#92a8D1" color="white" >
 				Hier sind Vorschläge, wie du deine Inhalte kommunizieren kannst:
 			</Heading>
 			<MediaResults />
