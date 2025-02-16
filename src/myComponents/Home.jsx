@@ -10,16 +10,17 @@ import {
 // import { Button } from "./components/ui/button";
 
 const Home = () => {
+  console.log(window.innerWidth)
   return (
     <VStack >
-      <Box width="60%">
+      <Box maxWidth="1000px" paddingLeft="10px" paddingRight="10px">
         <Center>
-          <Box paddingTop={4} paddingBottom={4} width={400} marginBottom={3} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
+          <Box paddingTop={4} paddingBottom={4} width="100%" marginBottom={3} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
             <Link to="/">Medienkompass</Link>
           </Box>
         </Center>
         <HStack >
-          <Box width="50%">
+          <Box maxWidth="900px">
             <Box marginRight="2rem" marginBottom={3} padding="1rem 2rem" background="orange" borderRadius={20} color="white" >
               Wie kann ich mein Thema präsentieren?
             </Box>
@@ -30,13 +31,20 @@ const Home = () => {
               Du brauchst Inspiration for deine Kommunikation?
             </Box>
           </Box>
-          <Box width="50%">
+          {window.innerWidth >= 750 && <Box width="50%">
             <VStack>
               <Heading>Einführungsvideo</Heading>
               <video src={"/Wissenschaftskommunikation-im-MINT-Bereich/intro.mp4"} width="90%" controls />
             </VStack>
-          </Box>
+          </Box>}
         </HStack>
+
+        {window.innerWidth < 750 && <Box width="100%" marginTop="10px">
+            <VStack margin="auto">
+              <Heading>Einführungsvideo</Heading>
+              <video src={"/Wissenschaftskommunikation-im-MINT-Bereich/intro.mp4"} width="80%" controls />
+            </VStack>
+          </Box>}
 
         <Box margin={6} padding="1rem 2rem" background="#92a8D1" color="white" >
           Du stehst kurz vor einem Vortrag und möchtest ihn spannender gestalten? Der „Medienkompass“ bietet dir Starthilfe, um passende Methoden für deine Zielgruppe und Intention zu finden. Lass dich von kreativen Alternativen inspirieren, um Wissen effektiv zu vermitteln.

@@ -60,14 +60,17 @@ const Wizard = () => {
 
   return (
     <>
-    <Center>
-      <VStack>
-        <HStack>
-          <Box paddingTop={4} paddingBottom={4} width={400} marginBottom={5} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
-            <Link to="/">Medienkompass</Link>
+    <Center paddingLeft="10px" paddingRight="10px">
+      <VStack >
+          <Box padding={4} width="100%" marginBottom={5} textAlign={"center"} background={"blackAlpha.800"} color={"white"} fontSize={"x-large"}>
+            <Center>
+              <HStack>
+                <Link to="/">Medienkompass</Link>
+                <Link to="/"><Icon size={"2xl"}><FaHome /></Icon></Link>
+              </HStack>
+            </Center>
           </Box>
-          <Link to="/"><Icon size={"2xl"}><FaHome /></Icon></Link>
-          </HStack>
+          
         <Box marginTop={0} marginLeft={20} marginRight={20} marginBottom={10} width="60%">
           <StepWizard 
             transitions={state.transitions}
