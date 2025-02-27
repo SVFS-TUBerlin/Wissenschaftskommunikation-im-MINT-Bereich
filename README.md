@@ -1,6 +1,6 @@
 # About Medienkompass
 
-This project was developed in the course "Wissenschaftskommunikation im MINT-Bereich" at the TU Berlin. It is a web application designed to help users to present their content in a more interesting way by filling in a questionnaire that shows possible media for communication as a result. The user can then read through additional tips and information on each medium and receives a leaflet with basic tips for good science communication.
+This project was developed in the module "Wissenschaftskommunikation im MINT-Bereich" at the TU Berlin. It is a web application designed to help users to present their content in a more interesting way by filling in a questionnaire that shows possible media for communication as a result. The user can then read through additional tips and information on each medium and receives a leaflet with basic tips for good science communication.
 
 # Technical Details
 
