@@ -58,7 +58,7 @@ const Home = () => {
             <AccordionItem key={1} value={1} >
               <AccordionItemTrigger>Wozu dient der Medienkompass?</AccordionItemTrigger>
               <AccordionItemContent>
-                Unser interaktives Tool unterstützt dich und bietet dir einen Leitfaden für die Grundbausteine der Wissenschaftskommunikation. Es hilft dir, einen passenden Kommunikationsstil und geeignete Kanäle für deine Botschaft zu finden – individuell abgestimmt auf deine Ziele. Schritt für Schritt führt das Tool dich durch die wichtigsten Fragen und gibt dir konkrete Empfehlungen. So wird deine Wissenschaftskommunikation nicht nur effektiver, sondern auch kreativer und einprägsamer.
+                Unser interaktives Tool unterstützt dich und bietet dir einen Leitfaden für die Grundbausteine der Wissenschaftskommunikation. Es hilft dir, einen passenden Kommunikationsstil und geeignete Kanäle für deine Botschaft zu finden - individuell abgestimmt auf deine Ziele. Schritt für Schritt führt das Tool dich durch die wichtigsten Fragen und gibt dir konkrete Empfehlungen. So wird deine Wissenschaftskommunikation nicht nur effektiver, sondern auch kreativer und einprägsamer.
               </AccordionItemContent>
             </AccordionItem>
             <AccordionItem key={2} value={2} >
@@ -71,7 +71,7 @@ const Home = () => {
               <AccordionItemTrigger>Wer hat den Medienkompass entwickelt?</AccordionItemTrigger>
               <AccordionItemContent>
                 Wir sind 3 Studies, die sich im Rahmen des Modules „Wissenschaftskommunikation im MINT-Bereich“ viele Fragen gestellt und in gemeinsamer Arbeit mit der tollen Modulleitung dieses Tool entwickelt haben. Wir danken den Fachgebieten SVFS und LKM der TU Berlin.
-                Bei Fragen oder Anmerkungen meldet euch gerne per Mail an: additive_SVFS_TUBerlin@protonmail.com
+                Bei Fragen oder Anmerkungen meldet euch gerne per Mail an: n.panjalipoursangari@tu-berlin.de
               </AccordionItemContent>
             </AccordionItem>
         </AccordionRoot>
