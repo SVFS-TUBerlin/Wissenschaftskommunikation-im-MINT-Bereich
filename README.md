@@ -27,3 +27,13 @@ Run locally with: `npm start`
 2. Deploy to GitHub Pages using: `npm run deploy`
 3. After a successfull deployment you may need to wait a few minutes in order to see the changes.
 4. Check https://svfs-tuberlin.github.io/Wissenschaftskommunikation-im-MINT-Bereich/ if the changes were deployed and the application is still running correctly.
+
+## Repository structure
+The `/public` folder contains media files like images, PDF files and the introduction video.
+The `/src` folder contains the source code for the Medienkompass.
+The code for the start page is located in the `/src/myComponents/Home.jsx` file.
+The code for the questionare is located in following files:
+1. `src/myComponents/Wizard.jsx`
+2. `src/myComponents/steps/Questionare.jsx`
+3. `src/myComponents/steps/Goal.jsx` and `src/myComponents/steps/Group.jsx`
+The information about the questions, corresponding answers, and media types are stored in the files `src/myComponents/media.json` and `src/myComponents/topics.json`. 
